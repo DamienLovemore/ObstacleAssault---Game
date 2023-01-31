@@ -16,11 +16,17 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	// --Understing how variables work--
 	this->MyInt = 9;
 
 	this->APlusB = this->InputA + this->InputB;
 	
 	this->APlusBFloat = this->InputAFloat + this->InputBFloat;
+
+	// --Working with Struct in C++--
+	this->MyX = 5.0;
+	this->MyVector.Y = this->MyX;
+	this->MyX = this->MyVector.X;
 }
 
 // Called every frame

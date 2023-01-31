@@ -23,6 +23,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// --Understing how variables work--
 	// Make it visible to the editor
 	UPROPERTY(EditAnywhere);
 	int32 MyInt = 99;
@@ -50,4 +51,12 @@ public:
 
 	UPROPERTY(EditAnywhere);
 	bool MyBool = true;
+
+	// --Working with Struct in C++--
+	UPROPERTY(EditAnywhere);
+	//A Vector with 3 values, that accept float values
+	FVector MyVector = FVector(1, 2, 3);
+
+	UPROPERTY(EditAnywhere)
+	float MyX = 0;
 };
