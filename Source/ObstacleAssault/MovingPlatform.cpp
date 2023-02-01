@@ -31,6 +31,10 @@ void AMovingPlatform::BeginPlay()
 	// // --Calling Functions in C++--
 	// this->SetActorLocation(FVector(1, 2, 3));
 	// this->SetActorLocation(this->MyVector2);
+
+	//Stores the initial position of it, so we can later
+	//see how much it has travelled
+	this->StartPosition = this->GetActorLocation();
 }
 
 // Called every frame
@@ -57,5 +61,6 @@ void AMovingPlatform::Tick(float DeltaTime)
 	this->SetActorLocation(CurrentLocation);
 	//Send platform back if gone too far
 		//Check how far it has gone
+		this->TravelledDist = FVector::Dist(this->StartPosition, CurrentLocation);
 		//Reverse direction of motion if it has gone too far.	
 }
