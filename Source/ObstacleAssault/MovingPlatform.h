@@ -23,44 +23,44 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// --Understing how variables work--
-	// Make it visible to the editor
-	UPROPERTY(EditAnywhere);
-	int32 MyInt = 99;
+	// // --Understing how variables work--
+	// // Make it visible to the editor
+	// UPROPERTY(EditAnywhere);
+	// int32 MyInt = 99;
 
-	UPROPERTY(EditAnywhere);
-	int32 InputA = 0;
+	// UPROPERTY(EditAnywhere);
+	// int32 InputA = 0;
 
-	UPROPERTY(EditAnywhere);
-	int32 InputB = 0;
+	// UPROPERTY(EditAnywhere);
+	// int32 InputB = 0;
 
-	UPROPERTY(EditAnywhere);
-	int32 APlusB = 0;
+	// UPROPERTY(EditAnywhere);
+	// int32 APlusB = 0;
 
-	UPROPERTY(EditAnywhere);
-	float InputAFloat = 0.0;
+	// UPROPERTY(EditAnywhere);
+	// float InputAFloat = 0.0;
 
-	UPROPERTY(EditAnywhere);
-	float InputBFloat = 0.0;
+	// UPROPERTY(EditAnywhere);
+	// float InputBFloat = 0.0;
 
-	UPROPERTY(EditAnywhere);
-	float APlusBFloat = 0.0;
+	// UPROPERTY(EditAnywhere);
+	// float APlusBFloat = 0.0;
 
-	UPROPERTY(EditAnywhere);
-	float MyAge = 21.0;
+	// UPROPERTY(EditAnywhere);
+	// float MyAge = 21.0;
 
-	UPROPERTY(EditAnywhere);
-	bool MyBool = true;
+	// UPROPERTY(EditAnywhere);
+	// bool MyBool = true;
 
-	// --Working with Struct in C++--
-	UPROPERTY(EditAnywhere);
-	//A Vector with 3 values, that accept float values
-	FVector MyVector = FVector(1, 2, 3);
+	// // --Working with Struct in C++--
+	// UPROPERTY(EditAnywhere);
+	// //A Vector with 3 values, that accept float values
+	// FVector MyVector = FVector(1, 2, 3);
 
-	UPROPERTY(EditAnywhere)
-	float MyX = 0;
+	// UPROPERTY(EditAnywhere)
+	// float MyX = 0;
 
-	// --Calling Functions in C++--
-	UPROPERTY(EditAnywhere)
-	FVector MyVector2 = FVector(-15500.000000, -3110.000000, 4056.000000);
+	// // --Calling Functions in C++--
+	// UPROPERTY(EditAnywhere)
+	// FVector MyVector2 = FVector(-15500.000000, -3110.000000, 4056.000000);
 };
