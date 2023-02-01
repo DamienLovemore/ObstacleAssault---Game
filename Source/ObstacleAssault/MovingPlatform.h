@@ -63,4 +63,9 @@ public:
 	// // --Calling Functions in C++--
 	// UPROPERTY(EditAnywhere)
 	// FVector MyVector2 = FVector(-15500.000000, -3110.000000, 4056.000000);
+
+	//EditAnywhere make it visible to the editor, and
+	//category is header that should group this variable
+	UPROPERTY(EditAnywhere, Category="Moving Platform")
+	FVector PlatformVelocity = FVector(100, 0, 0);
 };
