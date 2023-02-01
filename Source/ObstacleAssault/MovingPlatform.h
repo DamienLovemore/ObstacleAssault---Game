@@ -68,10 +68,10 @@ public:
 	//category is header that should group this variable
 	UPROPERTY(EditAnywhere, Category="Moving Platform")
 	FVector PlatformVelocity = FVector(100, 0, 0);
-
-	FVector StartPosition;
-
 	//Make it visible to the editor, but not editable
 	UPROPERTY(VisibleAnywhere);
 	float TravelledDist;
+	float MovedDistance = 100;
+
+	FVector StartPosition;	
 };
