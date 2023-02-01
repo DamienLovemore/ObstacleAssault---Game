@@ -63,11 +63,18 @@ void AMovingPlatform::Tick(float DeltaTime)
 		//Check how far it has gone
 	this->TravelledDist = FVector::Dist(this->StartPosition, CurrentLocation);
 		//Reverse direction of motion if it has gone too far.
-	if (this->TravelledDist > this->MovedDistance)
-	{
-		//Makes the value of the vector to inverted
+	if (this->TravelledDist > this->MoveDistance)
+	{	//Returns a copy of this vector, that is values are normalized
+		//(If it has too small values, it returns a zeroed vector)
+		FVector MoveDirection = this->PlatformVelocity.GetSafeNormal();
+		//Calculates the start position to be the opposite side of its position,
+		//by 100 meters in this case.
+		this->StartPosition = this->StartPosition + (MoveDirection * this->MoveDistance);
+		//Sets is position again in case it moved by the Tick
+		this->SetActorLocation(this->StartPosition);
+
+		//Makes the value of the vector to be inverted
 		//(Positive to negative, and negative to positive)
 		this->PlatformVelocity = -this->PlatformVelocity;
-		this->StartPosition = CurrentLocation;
 	}
 }
