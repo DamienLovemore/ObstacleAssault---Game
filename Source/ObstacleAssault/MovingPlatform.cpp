@@ -27,6 +27,10 @@ void AMovingPlatform::BeginPlay()
 	this->MyX = 5.0;
 	this->MyVector.Y = this->MyX;
 	this->MyX = this->MyVector.X;
+
+	// --Calling Functions in C++--
+	this->SetActorLocation(FVector(1, 2, 3));
+	this->SetActorLocation(this->MyVector2);
 }
 
 // Called every frame

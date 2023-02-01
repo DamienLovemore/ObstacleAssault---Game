@@ -59,4 +59,8 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float MyX = 0;
+
+	// --Calling Functions in C++--
+	UPROPERTY(EditAnywhere)
+	FVector MyVector2 = FVector(-15500.000000, -3110.000000, 4056.000000);
 };
