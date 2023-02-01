@@ -38,5 +38,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// --Tick--
+	this->MyVector2.Y += 1;
+	this->SetActorLocation(this->MyVector2);
 }
-
