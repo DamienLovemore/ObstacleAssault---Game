@@ -35,6 +35,13 @@ void AMovingPlatform::BeginPlay()
 	//Stores the initial position of it, so we can later
 	//see how much it has travelled
 	this->StartPosition = this->GetActorLocation();
+
+	// --Writing to the output log--
+	UE_LOG(LogTemp, Display, TEXT("Your message"));
+	//Writes data from variables to the log
+	UE_LOG(LogTemp, Display, TEXT("Configured Moved Distance: %f"), this->MoveDistance);
+	UE_LOG(LogTemp, Warning, TEXT("Your message"));
+	UE_LOG(LogTemp, Error, TEXT("Your message"));
 }
 
 // Called every frame
