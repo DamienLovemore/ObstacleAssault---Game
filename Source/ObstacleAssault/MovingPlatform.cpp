@@ -42,6 +42,14 @@ void AMovingPlatform::BeginPlay()
 	UE_LOG(LogTemp, Display, TEXT("Configured Moved Distance: %f"), this->MoveDistance);
 	UE_LOG(LogTemp, Warning, TEXT("Your message"));
 	UE_LOG(LogTemp, Error, TEXT("Your message"));
+
+	// --FString usage--
+	FString MyString = "My String Value";
+	//In Unreal Engine needs * to convert FString into the format it accepts
+	UE_LOG(LogTemp, Display, TEXT("Here's My String: %s"), *MyString);
+	// Logging a object name
+	FString Name = this->GetName();
+	UE_LOG(LogTemp, Display, TEXT("Here's the name of this object: %s"), *Name);
 }
 
 // Called every frame
