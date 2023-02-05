@@ -8,7 +8,6 @@ AMovingPlatform::AMovingPlatform()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -36,26 +35,29 @@ void AMovingPlatform::BeginPlay()
 	//see how much it has travelled
 	this->StartPosition = this->GetActorLocation();
 
-	// --Writing to the output log--
-	UE_LOG(LogTemp, Display, TEXT("Your message"));
-	//Writes data from variables to the log
-	UE_LOG(LogTemp, Display, TEXT("Configured Moved Distance: %f"), this->MoveDistance);
-	UE_LOG(LogTemp, Warning, TEXT("Your message"));
-	UE_LOG(LogTemp, Error, TEXT("Your message"));
+	// // --Writing to the output log--
+	// UE_LOG(LogTemp, Display, TEXT("Your message"));
+	// //Writes data from variables to the log
+	// UE_LOG(LogTemp, Display, TEXT("Configured Moved Distance: %f"), this->MoveDistance);
+	// UE_LOG(LogTemp, Warning, TEXT("Your message"));
+	// UE_LOG(LogTemp, Error, TEXT("Your message"));
 
-	// --FString usage--
-	FString MyString = "My String Value";
-	//In Unreal Engine needs * to convert FString into the format it accepts
-	UE_LOG(LogTemp, Display, TEXT("Here's My String: %s"), *MyString);
-	// Logging a object name
-	FString Name = this->GetName();
-	UE_LOG(LogTemp, Display, TEXT("Here's the name of this object: %s"), *Name);
+	// // --FString usage--
+	// FString MyString = "My String Value";
+	// //In Unreal Engine needs * to convert FString into the format it accepts
+	// UE_LOG(LogTemp, Display, TEXT("Here's My String: %s"), *MyString);
+	// // Logging a object name
+	// FString Name = this->GetName();
+	// UE_LOG(LogTemp, Display, TEXT("Here's the name of this object: %s"), *Name);
 }
 
 // Called every frame
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	this->MovePlatform(DeltaTime);
+	this->RotatePlatform(DeltaTime);
 
 	// // --Local Variables--
 	// FVector LocalVector = this->MyVector2;
@@ -65,7 +67,11 @@ void AMovingPlatform::Tick(float DeltaTime)
 	// this->MyVector2.Y += 1;
 	
 	// this->SetActorLocation(LocalVector);
+}
 
+//A before the class is for saying this is an actor. The :: is to say it is a function
+void AMovingPlatform::MovePlatform(float DeltaTime)
+{
 	//Steps for moving the platform
 	//Move forwards
 		//Get current location
@@ -92,4 +98,10 @@ void AMovingPlatform::Tick(float DeltaTime)
 		//(Positive to negative, and negative to positive)
 		this->PlatformVelocity = -this->PlatformVelocity;
 	}
+}
+
+void AMovingPlatform::RotatePlatform(float DeltaTime)
+{
+	UE_LOG(LogTemp, Display, TEXT("a message"));
+	UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *this->GetName());
 }

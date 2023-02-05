@@ -23,6 +23,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+private:
 	// // --Understing how variables work--
 	// // Make it visible to the editor
 	// UPROPERTY(EditAnywhere);
@@ -74,5 +75,8 @@ public:
 	UPROPERTY(VisibleAnywhere, Category="Moving Platform");
 	float TravelledDist;	
 
-	FVector StartPosition;	
+	FVector StartPosition;
+
+	void MovePlatform(float DeltaTime);
+	void RotatePlatform(float DeltaTime);
 };
