@@ -95,6 +95,7 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 		FVector CurrentLocation = this->GetActorLocation();
 			//Add vector to that location (DeltaTime makes it framerate independent)
 		CurrentLocation += this->PlatformVelocity * DeltaTime;
+
 			//Set the location
 		this->SetActorLocation(CurrentLocation);
 	}
@@ -102,8 +103,15 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	UE_LOG(LogTemp, Display, TEXT("a message"));
-	UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *this->GetName());
+	//This way should not be used because it will not always work, sometimes it
+	//needs to flip rotation from negative to positive and this will cause bugs.
+	// FRotator CurrentRotation = this->GetActorRotation();
+	// CurrentRotation = CurrentRotation + (this->RotationVelocity * DeltaTime);
+
+	// this->SetActorRotation(CurrentRotation);
+
+	//Adds the value to the current location for us
+	this->AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
 float AMovingPlatform::GetDistanceMoved() const

@@ -67,10 +67,12 @@ private:
 
 	//EditAnywhere make it visible to the editor, and
 	//category is header that should group this variable
-	UPROPERTY(EditAnywhere, Category="Moving Platform")
+	UPROPERTY(EditAnywhere, Category="Movement")
 	FVector PlatformVelocity = FVector(100, 0, 0);
-	UPROPERTY(EditAnywhere, Category="Moving Platform")
-	float MoveDistance = 100;	
+	UPROPERTY(EditAnywhere, Category="Movement")
+	float MoveDistance = 100;
+	UPROPERTY(EditAnywhere, Category="Rotation")
+	FRotator RotationVelocity;
 
 	FVector StartPosition;
 
