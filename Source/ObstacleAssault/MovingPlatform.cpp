@@ -72,19 +72,9 @@ void AMovingPlatform::Tick(float DeltaTime)
 //A before the class is for saying this is an actor. The :: is to say it is a function
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	//Steps for moving the platform
-	//Move forwards
-		//Get current location
-	FVector CurrentLocation = this->GetActorLocation();
-		//Add vector to that location (DeltaTime makes it framerate independent)
-	CurrentLocation += this->PlatformVelocity * DeltaTime;
-		//Set the location
-	this->SetActorLocation(CurrentLocation);
-	//Send platform back if gone too far
-		//Check how far it has gone
-	this->TravelledDist = FVector::Dist(this->StartPosition, CurrentLocation);
+	//Send platform back if gone too far		
 		//Reverse direction of motion if it has gone too far.
-	if (this->TravelledDist > this->MoveDistance)
+	if (this->ShouldPlatformReturn())
 	{	//Returns a copy of this vector, that is values are normalized
 		//(If it has too small values, it returns a zeroed vector)
 		FVector MoveDirection = this->PlatformVelocity.GetSafeNormal();
@@ -98,10 +88,32 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 		//(Positive to negative, and negative to positive)
 		this->PlatformVelocity = -this->PlatformVelocity;
 	}
+	else
+	{
+		//Move forwards
+			//Get current location
+		FVector CurrentLocation = this->GetActorLocation();
+			//Add vector to that location (DeltaTime makes it framerate independent)
+		CurrentLocation += this->PlatformVelocity * DeltaTime;
+			//Set the location
+		this->SetActorLocation(CurrentLocation);
+	}
 }
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
 	UE_LOG(LogTemp, Display, TEXT("a message"));
 	UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *this->GetName());
+}
+
+float AMovingPlatform::GetDistanceMoved(FVector StartPosition)
+{
+	return FVector::Dist(StartPosition, this->GetActorLocation());
+}
+
+bool AMovingPlatform::ShouldPlatformReturn()
+{
+	//Check how far it has gone
+	float DistanceMoved = this->GetDistanceMoved(this->StartPosition);
+	return DistanceMoved > this->MoveDistance;
 }

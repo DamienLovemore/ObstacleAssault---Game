@@ -70,13 +70,13 @@ private:
 	UPROPERTY(EditAnywhere, Category="Moving Platform")
 	FVector PlatformVelocity = FVector(100, 0, 0);
 	UPROPERTY(EditAnywhere, Category="Moving Platform")
-	float MoveDistance = 100;
-	//Make it visible to the editor, but not editable
-	UPROPERTY(VisibleAnywhere, Category="Moving Platform");
-	float TravelledDist;	
+	float MoveDistance = 100;	
 
 	FVector StartPosition;
 
 	void MovePlatform(float DeltaTime);
 	void RotatePlatform(float DeltaTime);
+
+	float GetDistanceMoved(FVector StartPosition);
+	bool ShouldPlatformReturn();
 };
