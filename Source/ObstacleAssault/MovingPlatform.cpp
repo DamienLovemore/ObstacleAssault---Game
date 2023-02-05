@@ -106,14 +106,14 @@ void AMovingPlatform::RotatePlatform(float DeltaTime)
 	UE_LOG(LogTemp, Display, TEXT("%s Rotating..."), *this->GetName());
 }
 
-float AMovingPlatform::GetDistanceMoved(FVector StartPosition)
+float AMovingPlatform::GetDistanceMoved() const
 {
-	return FVector::Dist(StartPosition, this->GetActorLocation());
+	return FVector::Dist(this->StartPosition, this->GetActorLocation());
 }
 
-bool AMovingPlatform::ShouldPlatformReturn()
+bool AMovingPlatform::ShouldPlatformReturn() const
 {
 	//Check how far it has gone
-	float DistanceMoved = this->GetDistanceMoved(this->StartPosition);
+	float DistanceMoved = this->GetDistanceMoved();
 	return DistanceMoved > this->MoveDistance;
 }

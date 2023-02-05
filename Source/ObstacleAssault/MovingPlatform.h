@@ -77,6 +77,8 @@ private:
 	void MovePlatform(float DeltaTime);
 	void RotatePlatform(float DeltaTime);
 
-	float GetDistanceMoved(FVector StartPosition);
-	bool ShouldPlatformReturn();
+	float GetDistanceMoved() const;
+	//A const function is not able to modify values of the class
+	//Just return values
+	bool ShouldPlatformReturn() const;
 };
