@@ -1,5 +1,5 @@
 <!-- GAME PROJECT TITLE -->
-# Argon-Assault---Game
+# ObstacleAssault---Game
 Game created for study purposes by Matheus Soares Martins, and is was created to test third-person features, and programming using C++.<br>
 In this game you have a onstacle course that you have to go through, until you reach the castle to steal the famous righteousness element.
 <br>
